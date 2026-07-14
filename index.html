@@ -44,7 +44,7 @@
       </section>
 
       <section class="control-panel" aria-labelledby="formula-titulo">
-        <div>
+        <div class="control-intro">
           <p class="section-label">Fórmula de precio</p>
           <h2 id="formula-titulo">Elige cómo se valoran las ofertas</h2>
         </div>
@@ -58,16 +58,15 @@
           </select>
           <p id="algorithm-help">Al cambiar la fórmula se actualizan las puntuaciones y el ganador.</p>
         </div>
-      </section>
-
-      <section class="formula-card" aria-labelledby="formula-nombre">
-        <div class="formula-number" aria-hidden="true">01</div>
-        <div>
+        <section class="formula-preview" aria-labelledby="formula-nombre">
+          <div class="formula-number" id="formula-number" aria-hidden="true">01</div>
+          <div>
           <h2 id="formula-nombre"></h2>
           <p id="formula-description"></p>
           <p class="equation" id="formula-equation"></p>
           <p class="formula-note" id="formula-note"></p>
-        </div>
+          </div>
+        </section>
       </section>
 
       <section id="resultados" class="results" aria-labelledby="resultados-titulo" tabindex="-1">

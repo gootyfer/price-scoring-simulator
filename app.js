@@ -52,7 +52,7 @@ const percentage = new Intl.NumberFormat("es-ES", { minimumFractionDigits: 2, ma
 
 const algorithmSelect = document.querySelector("#algorithm");
 const elements = {
-  formulaName: document.querySelector("#formula-nombre"), formulaDescription: document.querySelector("#formula-description"), formulaEquation: document.querySelector("#formula-equation"), formulaNote: document.querySelector("#formula-note"),
+  formulaNumber: document.querySelector("#formula-number"), formulaName: document.querySelector("#formula-nombre"), formulaDescription: document.querySelector("#formula-description"), formulaEquation: document.querySelector("#formula-equation"), formulaNote: document.querySelector("#formula-note"),
   table: document.querySelector("#results-body"), cards: document.querySelector("#mobile-results"), interpretation: document.querySelector("#interpretation-text"), announcement: document.querySelector("#results-announcement")
 };
 
@@ -66,6 +66,7 @@ function render() {
   const ranking = [...evaluated].filter(({ excluded }) => !excluded).sort((a, b) => b.total - a.total);
   const winner = ranking[0];
 
+  elements.formulaNumber.textContent = formula.number;
   elements.formulaName.textContent = formula.name;
   elements.formulaDescription.textContent = formula.description;
   elements.formulaEquation.textContent = formula.equation;
