@@ -15,7 +15,7 @@ Mantener estos límites permite que el ejercicio concentre la atención en la in
 
 ## Decisiones de información
 
-La tabla enseña el precio presentado, la baja, los puntos técnicos, los de precio, el total y el estado. El ganador se identifica por la mayor puntuación total, no por la oferta más barata. Una ficha explica cada fórmula y un texto bajo los resultados interpreta el ganador para este escenario.
+La tabla enseña el precio presentado, la baja, los puntos técnicos, los de precio, el total y el estado. El ganador se identifica por la mayor puntuación total, no por la oferta más barata. La interfaz sigue tres pasos —escenario, fórmula de precio y resultados—; el detalle de la fórmula se integra en el segundo paso y la explicación aparece junto al ganador.
 
 El caso reproduce la regla proporcionada: Épsilon aparece como posible baja anormal en las fórmulas 1 y 3, y como excluida en las fórmulas 2 y 4. El aviso deja claro que se trata de una simplificación ilustrativa y no de una exclusión jurídica automática.
 

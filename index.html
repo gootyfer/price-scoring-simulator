@@ -25,15 +25,16 @@
         <h1 id="titulo-principal">Simulador de fórmulas de valoración económica</h1>
         <p class="lead">
           En una licitación, la administración asigna puntos a cada oferta según los criterios definidos
-          previamente. El precio puede aportar hasta 50 puntos y se calcula de forma automática con una
-          fórmula. Cambiar esa fórmula puede cambiar el resultado de la adjudicación.
+          previamente. La puntuación del precio se calcula de forma automática con una fórmula. Cambiar
+          esa fórmula puede cambiar el resultado de la adjudicación.
         </p>
       </section>
 
       <section class="scenario" aria-labelledby="escenario-titulo">
         <div>
-          <p class="section-label">Escenario</p>
-          <h2 id="escenario-titulo">Servicio de mantenimiento de instalaciones municipales</h2>
+          <p class="section-label">Paso 1</p>
+          <h2 id="escenario-titulo">Escenario de la licitación</h2>
+          <h3 class="scenario-name">Servicio de mantenimiento de instalaciones municipales</h3>
         </div>
         <dl class="scenario-data">
           <div><dt>Presupuesto base</dt><dd>200.000 € sin IVA</dd></div>
@@ -45,35 +46,31 @@
 
       <section class="control-panel" aria-labelledby="formula-titulo">
         <div class="control-intro">
-          <p class="section-label">Fórmula de precio</p>
+          <p class="section-label">Paso 2</p>
           <h2 id="formula-titulo">Elige cómo se valoran las ofertas</h2>
         </div>
         <div class="field">
-          <label for="algorithm">Fórmula de valoración económica</label>
-          <select id="algorithm" name="algorithm" aria-describedby="algorithm-help">
-            <option value="inverse">1. Proporcional inversa</option>
-            <option value="budget">2. Baja sobre presupuesto base</option>
-            <option value="satisfaction">3. Con umbral de saciedad</option>
-            <option value="average">4. Referenciada a la media de las ofertas</option>
+          <label class="sr-only" for="algorithm">Fórmula de valoración económica</label>
+          <select id="algorithm" name="algorithm">
+            <option value="inverse">Proporcional inversa</option>
+            <option value="budget">Baja sobre presupuesto base</option>
+            <option value="satisfaction">Con umbral de saciedad</option>
+            <option value="average">Referenciada a la media de las ofertas</option>
           </select>
-          <p id="algorithm-help">Al cambiar la fórmula se actualizan las puntuaciones y el ganador.</p>
         </div>
-        <section class="formula-preview" aria-labelledby="formula-nombre">
-          <div class="formula-number" id="formula-number" aria-hidden="true">01</div>
-          <div>
-          <h2 id="formula-nombre"></h2>
+        <div class="formula-preview" aria-labelledby="formula-nombre">
+          <p class="sr-only" id="formula-nombre">Explicación de la fórmula seleccionada</p>
           <p id="formula-description"></p>
           <p class="equation" id="formula-equation"></p>
           <p class="formula-note" id="formula-note"></p>
-          </div>
-        </section>
+        </div>
       </section>
 
       <section id="resultados" class="results" aria-labelledby="resultados-titulo" tabindex="-1">
         <div class="results-heading">
           <div>
-            <p class="section-label">Resultado de la simulación</p>
-            <h2 id="resultados-titulo">Puntuación de los licitadores</h2>
+            <p class="section-label">Paso 3</p>
+            <h2 id="resultados-titulo">Resultados de la simulación</h2>
           </div>
           <p class="legend" aria-label="Leyenda"><span class="legend-winner"></span> Ganador <span class="legend-excluded"></span> Excluida</p>
         </div>
@@ -97,12 +94,6 @@
           </table>
         </div>
         <div id="mobile-results" class="mobile-results" aria-label="Resultados detallados"></div>
-      </section>
-
-      <section class="interpretation" aria-labelledby="interpretacion-titulo">
-        <p class="section-label">Lectura del resultado</p>
-        <h2 id="interpretacion-titulo">¿Por qué gana esta oferta?</h2>
-        <p id="interpretation-text"></p>
       </section>
 
       <aside class="legal-note" aria-labelledby="aviso-titulo">
