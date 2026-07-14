@@ -1,7 +1,7 @@
 let budget = 200000;
 let maxPricePoints = 50;
 let abnormalThreshold = 0.2;
-const satisfactionThreshold = 0.15;
+let satisfactionThreshold = 0.15;
 
 const bidderProfiles = [
   { name: "Alfa", offerRatio: 1, technicalRatio: 42 / 50 },
@@ -40,9 +40,9 @@ const formulas = {
   },
   satisfaction: {
     name: "Con umbral de saciedad",
-    description: () => "A partir de una baja del 15 %, se alcanza la máxima puntuación. Ofrecer una rebaja mayor ya no suma puntos adicionales.",
-    equation: () => `Si baja ≥ 15 %: ${maxPricePoints} puntos\nSi baja < 15 %: (baja / 15 %) × ${maxPricePoints}`,
-    note: () => "Las ofertas se mantienen en la simulación para mostrar que rebajar más del 15 % no aporta puntos adicionales.",
+    description: () => `A partir de una baja del ${percentage.format(satisfactionThreshold * 100)} %, se alcanza la máxima puntuación. Ofrecer una rebaja mayor ya no suma puntos adicionales.`,
+    equation: () => `Si baja ≥ ${percentage.format(satisfactionThreshold * 100)} %: ${maxPricePoints} puntos\nSi baja < ${percentage.format(satisfactionThreshold * 100)} %: (baja / ${percentage.format(satisfactionThreshold * 100)} %) × ${maxPricePoints}`,
+    note: () => `Las ofertas se mantienen en la simulación para mostrar que rebajar más del ${percentage.format(satisfactionThreshold * 100)} % no aporta puntos adicionales.`,
     calculate() { return bidders.map(bidder => { const reduction = 1 - bidder.offer / budget; return { ...bidder, price: Math.min(reduction / satisfactionThreshold * maxPricePoints, maxPricePoints), excluded: false }; }); },
   },
   average: {
@@ -66,9 +66,11 @@ const algorithmSelect = document.querySelector("#algorithm");
 const budgetInput = document.querySelector("#budget-input");
 const pricePointsInput = document.querySelector("#price-points-input");
 const thresholdInput = document.querySelector("#threshold-input");
+const satisfactionInput = document.querySelector("#satisfaction-input");
 const elements = {
   formulaDescription: document.querySelector("#formula-description"), formulaEquation: document.querySelector("#formula-equation"), formulaNote: document.querySelector("#formula-note"),
   technicalPoints: document.querySelector("#technical-points"), thresholdAmount: document.querySelector("#threshold-amount"),
+  satisfactionSetting: document.querySelector("#satisfaction-setting"),
   table: document.querySelector("#results-body"), cards: document.querySelector("#mobile-results"), announcement: document.querySelector("#results-announcement")
 };
 
@@ -85,6 +87,10 @@ function updateConfiguration() {
   rebuildBidders();
   elements.technicalPoints.textContent = `${100 - maxPricePoints} puntos`;
   elements.thresholdAmount.textContent = money.format(budget * (1 - abnormalThreshold));
+  render();
+}
+function updateSatisfactionThreshold() {
+  satisfactionThreshold = Number(satisfactionInput.value) / 100;
   render();
 }
 function reduction(bidder) { return (1 - bidder.offer / budget) * 100; }
@@ -142,6 +148,7 @@ function render() {
   elements.formulaDescription.textContent = formula.description();
   elements.formulaEquation.textContent = formula.equation();
   elements.formulaNote.textContent = formula.note();
+  elements.satisfactionSetting.hidden = algorithmSelect.value !== "satisfaction";
   elements.announcement.textContent = `Fórmula actualizada: ${formula.name}. ${winnerSummary(winners)}`;
 
   elements.table.innerHTML = evaluated.map((result, index) => {
@@ -165,4 +172,5 @@ algorithmSelect.addEventListener("change", render);
 budgetInput.addEventListener("change", updateConfiguration);
 pricePointsInput.addEventListener("change", updateConfiguration);
 thresholdInput.addEventListener("change", updateConfiguration);
+satisfactionInput.addEventListener("change", updateSatisfactionThreshold);
 updateConfiguration();

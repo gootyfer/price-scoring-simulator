@@ -6,7 +6,7 @@ Ayudar a entender, con un caso concreto, que la fórmula de valoración del prec
 
 ## Alcance deliberadamente simple
 
-- Configuración acotada: presupuesto base, puntuación de precio y umbral de baja anormal. Las ofertas se mantienen como porcentajes fijos del presupuesto y las puntuaciones técnicas se escalan con su peso.
+- Configuración acotada: presupuesto base, puntuación de precio, umbral de baja anormal y umbral de saciedad. Las ofertas se mantienen como porcentajes fijos del presupuesto y las puntuaciones técnicas se escalan con su peso.
 - Una fórmula visible cada vez, elegida mediante un desplegable accesible.
 - Se muestran resultados en forma de tabla en escritorio y tarjetas equivalentes en móvil.
 - No hay perfiles, edición de datos, comparación de dos fórmulas ni persistencia.
@@ -35,7 +35,7 @@ Las reglas esenciales se cubren con pruebas automáticas sin dependencias: ganad
 
 ## Siguientes iteraciones
 
-1. Permitir cambiar las ofertas individuales y el umbral de saciedad.
+1. Permitir cambiar las ofertas individuales.
 2. Comparar dos fórmulas lado a lado.
 3. Crear recorridos específicos para adjudicadores y licitadores.
 4. Añadir escenarios y validaciones configurables.

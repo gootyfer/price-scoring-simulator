@@ -77,6 +77,10 @@
         <div class="formula-preview" aria-labelledby="formula-nombre">
           <p class="sr-only" id="formula-nombre">Explicación de la fórmula seleccionada</p>
           <p id="formula-description"></p>
+          <div class="formula-setting" id="satisfaction-setting" hidden>
+            <label for="satisfaction-input">Umbral de saciedad</label>
+            <span class="input-with-unit"><select id="satisfaction-input"><option value="5">5</option><option value="10">10</option><option value="15" selected>15</option><option value="20">20</option><option value="25">25</option><option value="30">30</option><option value="35">35</option><option value="40">40</option><option value="45">45</option><option value="50">50</option></select><span aria-hidden="true">%</span></span>
+          </div>
           <p class="equation" id="formula-equation"></p>
           <p class="formula-note" id="formula-note"></p>
         </div>

@@ -12,6 +12,7 @@ function createSimulator() {
   nodes.set("#budget-input", createNode("200000"));
   nodes.set("#price-points-input", createNode("50"));
   nodes.set("#threshold-input", createNode("20"));
+  nodes.set("#satisfaction-input", createNode("15"));
   const document = {
     querySelector(selector) {
       if (selector === "#algorithm") return select;
@@ -31,6 +32,10 @@ function createSimulator() {
       if (pricePoints !== undefined) nodes.get("#price-points-input").value = String(pricePoints);
       if (threshold !== undefined) nodes.get("#threshold-input").value = String(threshold);
       vm.runInContext("updateConfiguration();", context);
+    },
+    setSatisfactionThreshold(value) {
+      nodes.get("#satisfaction-input").value = String(value);
+      vm.runInContext("updateSatisfactionThreshold();", context);
     },
     run(code) {
       return vm.runInContext(code, context);
@@ -76,8 +81,21 @@ test("el umbral de saciedad separa sus dos condiciones", () => {
   simulator.choose("satisfaction");
   assert.equal(
     simulator.text("#formula-equation"),
-    "Si baja ≥ 15 %: 50 puntos\nSi baja < 15 %: (baja / 15 %) × 50"
+    "Si baja ≥ 15,00 %: 50 puntos\nSi baja < 15,00 %: (baja / 15,00 %) × 50"
   );
+});
+
+test("el umbral de saciedad configurable actualiza la fórmula y el ganador", () => {
+  const simulator = createSimulator();
+  simulator.choose("satisfaction");
+  simulator.setSatisfactionThreshold(20);
+
+  assert.equal(
+    simulator.text("#formula-equation"),
+    "Si baja ≥ 20,00 %: 50 puntos\nSi baja < 20,00 %: (baja / 20,00 %) × 50"
+  );
+  assert.match(simulator.html("#mobile-results"), /offer-card winner[\s\S]*?<h3>Delta<\/h3>/);
+  assert.match(simulator.html("#mobile-results"), /Delta gana con 76,25 puntos/);
 });
 
 test("las configuraciones recalculan ofertas, técnica y umbral en euros", () => {

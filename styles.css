@@ -57,6 +57,10 @@ select { appearance: none; width: 100%; padding: .8rem 3rem .8rem .85rem; border
 
 .formula-preview { border-top: 1px solid var(--line); margin-top: 1.25rem; padding-top: 1.25rem; }
 .formula-preview p { color: var(--muted); margin-bottom: .65rem; }
+.formula-setting { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin: 1rem 0; padding: .75rem; background: var(--canvas); border-radius: .35rem; }
+.formula-setting[hidden] { display: none; }
+.formula-setting label { margin: 0; font-size: .9rem; }
+.formula-setting select { width: 4.5rem; min-height: 2.35rem; padding: .45rem 2rem .45rem .55rem; background-position: right .65rem center; }
 .equation { color: var(--ink) !important; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88rem; background: var(--canvas); border-left: .25rem solid var(--teal); padding: .75rem; white-space: pre-line; }
 .formula-note { font-size: .9rem; margin-bottom: 0 !important; }
 
