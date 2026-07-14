@@ -10,6 +10,7 @@ Mostrar, con un caso concreto, que la fórmula de precio condiciona el resultado
 - Las ofertas de los cinco licitadores se mantienen como porcentajes fijos del presupuesto base.
 - Técnica y precio suman siempre 100 puntos. Al variar el peso del precio, las notas técnicas se escalan proporcionalmente.
 - Los umbrales de baja anormal y de saciedad se configuran de forma independiente.
+- Los controles ofrecen rangos y saltos habituales en licitaciones, en vez de admitir cualquier valor: presupuesto desde 10.000 € en saltos de 10.000 €, y puntos o porcentajes de 5 en 5.
 - Se muestra una fórmula cada vez; el ganador es quien logra mayor puntuación total. Los empates se resuelven mostrando todos los ganadores.
 
 ## Límites deliberados

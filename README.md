@@ -25,3 +25,4 @@ Ejecuta `npm test` antes de incorporar una nueva funcionalidad. No requiere inst
 1. Comparar dos fórmulas lado a lado.
 2. Crear recorridos específicos: uno para adjudicadores que ayude a ajustar la fórmula y otro para licitadores que ayude a decidir el precio de su oferta.
 3. Añadir fórmulas no lineales, por tramos y otros algoritmos de valoración.
+4. Permitir escenarios con un número de licitadores más cercano a casos reales, por ejemplo 20 empresas.
