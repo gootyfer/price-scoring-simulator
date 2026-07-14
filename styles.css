@@ -40,7 +40,7 @@ h3 { font-size: 1.1rem; line-height: 1.25; letter-spacing: -.015em; margin: 0 0 
 .scenario { padding: 1.25rem; margin-bottom: 1rem; }
 .scenario-name { color: var(--muted); font-weight: 600; }
 .scenario-data { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding-top: .85rem; margin: 0; }
-.scenario-data div { border-top: 1px solid var(--line); padding-top: .65rem; }
+.scenario-data > div { border-top: 1px solid var(--line); padding-top: .65rem; }
 .scenario-note { margin-top: 1rem; padding: .85rem 1rem; background: #f7fbfb; border: 1px solid #b9dfe3; border-left: .3rem solid var(--teal); border-radius: .35rem; color: var(--muted); font-size: .9rem; }
 dt { color: var(--muted); font-size: .85rem; } dd { margin: .1rem 0 0; font-weight: 700; font-size: .95rem; }
 .scenario-data label { color: inherit; font: inherit; font-weight: inherit; }
@@ -50,7 +50,7 @@ dt { color: var(--muted); font-size: .85rem; } dd { margin: .1rem 0 0; font-weig
 .scenario-data select { width: 4.5rem; padding: .45rem 2rem .45rem .55rem; background-position: right .65rem center; }
 .threshold-inline { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem; }
 .threshold-separator { color: var(--muted); }.threshold-amount { color: var(--muted); font-size: .85rem; font-weight: 600; }
-.weighting-config { grid-column: 1 / -1; }.weighting-fields { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin: .25rem 0 0; padding: 0; border: 0; }.weighting-price, .weighting-technical { display: flex; align-items: center; gap: .45rem; }.weighting-price label, .weighting-technical > span { color: var(--muted); font-size: .85rem; font-weight: 600; }.weighting-technical { padding: .45rem .6rem; background: var(--teal-soft); border-radius: .3rem; }.weighting-operator { color: var(--muted); font-weight: 800; }.weighting-total { font-weight: 800; }
+.weighting-config { grid-column: 1 / -1; }.weighting-fields { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin: .25rem 0 0; padding: 0; border: 0; }.weighting-price, .weighting-technical { display: flex; align-items: center; gap: .45rem; }.weighting-price label, .weighting-label { color: var(--muted); font-size: .85rem; font-weight: 600; }.weighting-price label { margin: 0; }.score-value { display: inline-flex; align-items: center; min-height: 2.35rem; padding: .45rem .6rem; border-radius: .3rem; font-weight: 700; }.score-value-editable { gap: .2rem; border: 1px solid #9aabad; background: #fff; }.score-value-editable select { width: 3.6rem; min-height: auto; padding: 0 1.35rem 0 0; border: 0; border-radius: 0; background-position: right .1rem center; }.score-value-calculated { background: var(--teal-soft); }.weighting-operator { color: var(--muted); font-weight: 800; }.weighting-total { font-weight: 800; }
 
 .control-panel { padding: 1.25rem; margin-bottom: 1rem; }
 .field { margin-top: 1rem; }
