@@ -48,7 +48,9 @@ dt { color: var(--muted); font-size: .85rem; } dd { margin: .1rem 0 0; font-weig
 .scenario-data input, .scenario-data select { min-height: 2.35rem; border: 1px solid #9aabad; border-radius: .3rem; color: var(--ink); font: inherit; font-weight: 700; }
 .scenario-data input { width: 8.25rem; padding: .45rem .55rem; }
 .scenario-data select { width: 4.5rem; padding: .45rem 2rem .45rem .55rem; background-position: right .65rem center; }
-.threshold-amount { display: block; margin-top: .3rem; color: var(--muted); font-size: .85rem; font-weight: 600; }
+.threshold-inline { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem; }
+.threshold-separator { color: var(--muted); }.threshold-amount { color: var(--muted); font-size: .85rem; font-weight: 600; }
+.weighting-config { grid-column: 1 / -1; }.weighting-fields { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin: .25rem 0 0; padding: 0; border: 0; }.weighting-price, .weighting-technical { display: flex; align-items: center; gap: .45rem; }.weighting-price label, .weighting-technical > span { color: var(--muted); font-size: .85rem; font-weight: 600; }.weighting-technical { padding: .45rem .6rem; background: var(--teal-soft); border-radius: .3rem; }.weighting-operator { color: var(--muted); font-weight: 800; }.weighting-total { font-weight: 800; }
 
 .control-panel { padding: 1.25rem; margin-bottom: 1rem; }
 .field { margin-top: 1rem; }

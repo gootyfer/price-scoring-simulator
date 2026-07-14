@@ -1,20 +1,27 @@
 # Simulador de fórmulas de valoración económica
 
-Prototipo estático, sin dependencias ni backend, para entender cómo cuatro fórmulas de valoración del precio pueden cambiar el resultado de una licitación pública.
+Prototipo estático, sin backend ni dependencias de ejecución, para entender cómo una fórmula de valoración económica puede cambiar el resultado de una licitación pública.
 
-La interfaz está en español y presenta un escenario con cinco licitadores. Se pueden configurar el presupuesto base, el peso del precio, el umbral de baja anormal y el umbral de saciedad. Para ejecutarlo basta con abrir `index.html` en un navegador; también puede publicarse directamente con GitHub Pages.
+La interfaz está en español y presenta un escenario de servicios con cinco licitadores. Puede probarse en [GitHub Pages](https://gootyfer.github.io/price-scoring-simulator/) o abriendo `index.html` en un navegador.
 
-## Contenido
+## Estado actual
 
 - Cuatro fórmulas de valoración seleccionables.
-- Puntuación técnica y económica que siempre suma 100 puntos.
-- Presupuesto base, peso de precio y umbral de baja anormal configurables.
-- Umbral de saciedad configurable al usar esa fórmula.
-- Ganador destacado, ofertas excluidas y posible baja anormal identificadas visualmente.
-- Diseño responsive mobile-first y sin dependencias de compilación.
+- Tres pasos: escenario, fórmula de precio y resultados.
+- Presupuesto base, puntuación de precio, umbral de baja anormal y umbral de saciedad configurables.
+- Técnica y precio siempre suman 100 puntos; las puntuaciones técnicas de los licitadores se ajustan proporcionalmente.
+- Las ofertas se recalculan como porcentajes fijos del presupuesto base.
+- Ganadores, empates, exclusiones y posibles bajas anormales identificados de forma visual y textual.
+- Diseño mobile-first, HTML semántico y controles accesibles.
 
 Las decisiones de alcance y diseño se recogen en [DECISIONS.md](DECISIONS.md).
 
 ## Pruebas
 
 Ejecuta `npm test` antes de incorporar una nueva funcionalidad. No requiere instalar dependencias.
+
+## Próximas iteraciones
+
+1. Comparar dos fórmulas lado a lado.
+2. Crear recorridos específicos: uno para adjudicadores que ayude a ajustar la fórmula y otro para licitadores que ayude a decidir el precio de su oferta.
+3. Añadir fórmulas no lineales, por tramos y otros algoritmos de valoración.

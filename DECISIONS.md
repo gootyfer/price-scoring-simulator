@@ -1,41 +1,23 @@
 # Decisiones de producto y diseño
 
-## Objetivo de la primera versión
+## Objetivo
 
-Ayudar a entender, con un caso concreto, que la fórmula de valoración del precio condiciona el resultado de una licitación. La v1 no pretende resolver la elección jurídica de una fórmula ni recomendar un precio de oferta.
+Mostrar, con un caso concreto, que la fórmula de precio condiciona el resultado de una licitación. Es una herramienta ilustrativa: no sustituye el análisis jurídico ni recomienda una oferta concreta.
 
-## Alcance deliberadamente simple
+## Modelo actual
 
-- Configuración acotada: presupuesto base, puntuación de precio, umbral de baja anormal y umbral de saciedad. Las ofertas se mantienen como porcentajes fijos del presupuesto y las puntuaciones técnicas se escalan con su peso.
-- Una fórmula visible cada vez, elegida mediante un desplegable accesible.
-- Se muestran resultados en forma de tabla en escritorio y tarjetas equivalentes en móvil.
-- No hay perfiles, edición de datos, comparación de dos fórmulas ni persistencia.
+- La interfaz sigue tres pasos: configurar el escenario, elegir la fórmula y revisar el resultado.
+- Las ofertas de los cinco licitadores se mantienen como porcentajes fijos del presupuesto base.
+- Técnica y precio suman siempre 100 puntos. Al variar el peso del precio, las notas técnicas se escalan proporcionalmente.
+- Los umbrales de baja anormal y de saciedad se configuran de forma independiente.
+- Se muestra una fórmula cada vez; el ganador es quien logra mayor puntuación total. Los empates se resuelven mostrando todos los ganadores.
 
-Mantener estos límites permite que el ejercicio concentre la atención en la interpretación de los resultados, no en la configuración del simulador.
+## Límites deliberados
 
-## Decisiones de información
+- Sin backend, persistencia ni perfiles de usuario.
+- Sin edición individual de ofertas ni comparación simultánea de fórmulas.
+- En las fórmulas 1 y 3, una baja anormal se señala; en las fórmulas 2 y 4 se excluye para reproducir el escenario del ejercicio.
 
-La tabla enseña el precio presentado, la baja, los puntos técnicos, los de precio, el total y el estado. El ganador se identifica por la mayor puntuación total, no por la oferta más barata. La interfaz sigue tres pasos —escenario, fórmula de precio y resultados—; el detalle de la fórmula se integra en el segundo paso y la explicación aparece junto al ganador.
+## Calidad
 
-El caso reproduce la regla proporcionada: Épsilon aparece como posible baja anormal en las fórmulas 1 y 3, y como excluida en las fórmulas 2 y 4. El aviso deja claro que se trata de una simplificación ilustrativa y no de una exclusión jurídica automática.
-
-## Accesibilidad y diseño responsive
-
-- HTML semántico, etiquetas asociadas y tablas con encabezados.
-- Selector operable por teclado, foco visible y anuncio de cambios para lectores de pantalla.
-- El color refuerza los estados, que además se expresan en texto.
-- Contraste alto, tipografía del sistema y respeto por la preferencia de reducción de movimiento.
-- Prioridad móvil: las filas se convierten en tarjetas para evitar el desplazamiento horizontal; la tabla completa se conserva en escritorio.
-
-El objetivo práctico es WCAG 2.2 AA en los aspectos aplicables a este prototipo.
-
-## Verificación
-
-Las reglas esenciales se cubren con pruebas automáticas sin dependencias: ganadores de las cuatro fórmulas, exclusiones, umbral de saciedad y empates. Deben ejecutarse con `npm test` antes de dar por buena una nueva funcionalidad.
-
-## Siguientes iteraciones
-
-1. Permitir cambiar las ofertas individuales.
-2. Comparar dos fórmulas lado a lado.
-3. Crear recorridos específicos para adjudicadores y licitadores.
-4. Añadir escenarios y validaciones configurables.
+El prototipo prioriza móvil, semántica HTML, navegación por teclado, contraste y estados expresados también en texto. Las reglas esenciales se verifican con `npm test` antes de incorporar funcionalidades.

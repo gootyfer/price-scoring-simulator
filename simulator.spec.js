@@ -105,7 +105,7 @@ test("las configuraciones recalculan ofertas, técnica y umbral en euros", () =>
   assert.match(simulator.html("#mobile-results"), /300\.000&nbsp;€|300\.000\s*€/);
   assert.match(simulator.html("#mobile-results"), /50,40 pts/);
   assert.equal(simulator.text("#technical-points"), "60 puntos");
-  assert.equal(simulator.text("#threshold-amount"), "225.000 €");
+  assert.equal(simulator.text("#threshold-amount"), "Límite: 225.000 €");
 });
 
 test("las fórmulas reflejan la puntuación y el umbral configurados", () => {

@@ -86,7 +86,7 @@ function updateConfiguration() {
   budgetInput.value = String(budget);
   rebuildBidders();
   elements.technicalPoints.textContent = `${100 - maxPricePoints} puntos`;
-  elements.thresholdAmount.textContent = money.format(budget * (1 - abnormalThreshold));
+  elements.thresholdAmount.textContent = `Límite: ${money.format(budget * (1 - abnormalThreshold))}`;
   render();
 }
 function updateSatisfactionThreshold() {
