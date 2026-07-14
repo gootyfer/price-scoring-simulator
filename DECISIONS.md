@@ -6,7 +6,7 @@ Ayudar a entender, con un caso concreto, que la fórmula de valoración del prec
 
 ## Alcance deliberadamente simple
 
-- Datos fijos: presupuesto, ofertas, puntuaciones técnicas, umbrales y reglas de exclusión.
+- Configuración acotada: presupuesto base, puntuación de precio y umbral de baja anormal. Las ofertas se mantienen como porcentajes fijos del presupuesto y las puntuaciones técnicas se escalan con su peso.
 - Una fórmula visible cada vez, elegida mediante un desplegable accesible.
 - Se muestran resultados en forma de tabla en escritorio y tarjetas equivalentes en móvil.
 - No hay perfiles, edición de datos, comparación de dos fórmulas ni persistencia.
@@ -29,9 +29,13 @@ El caso reproduce la regla proporcionada: Épsilon aparece como posible baja ano
 
 El objetivo práctico es WCAG 2.2 AA en los aspectos aplicables a este prototipo.
 
+## Verificación
+
+Las reglas esenciales se cubren con pruebas automáticas sin dependencias: ganadores de las cuatro fórmulas, exclusiones, umbral de saciedad y empates. Deben ejecutarse con `npm test` antes de dar por buena una nueva funcionalidad.
+
 ## Siguientes iteraciones
 
-1. Permitir cambiar ponderaciones, umbrales y ofertas.
+1. Permitir cambiar las ofertas individuales y el umbral de saciedad.
 2. Comparar dos fórmulas lado a lado.
 3. Crear recorridos específicos para adjudicadores y licitadores.
 4. Añadir escenarios y validaciones configurables.

@@ -41,7 +41,14 @@ h3 { font-size: 1.1rem; line-height: 1.25; letter-spacing: -.015em; margin: 0 0 
 .scenario-name { color: var(--muted); font-weight: 600; }
 .scenario-data { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding-top: .85rem; margin: 0; }
 .scenario-data div { border-top: 1px solid var(--line); padding-top: .65rem; }
+.scenario-note { margin-top: 1rem; padding: .85rem 1rem; background: #f7fbfb; border: 1px solid #b9dfe3; border-left: .3rem solid var(--teal); border-radius: .35rem; color: var(--muted); font-size: .9rem; }
 dt { color: var(--muted); font-size: .85rem; } dd { margin: .1rem 0 0; font-weight: 700; font-size: .95rem; }
+.scenario-data label { color: inherit; font: inherit; font-weight: inherit; }
+.input-with-unit { display: inline-flex; align-items: center; gap: .45rem; }
+.scenario-data input, .scenario-data select { min-height: 2.35rem; border: 1px solid #9aabad; border-radius: .3rem; color: var(--ink); font: inherit; font-weight: 700; }
+.scenario-data input { width: 8.25rem; padding: .45rem .55rem; }
+.scenario-data select { width: 4.5rem; padding: .45rem 2rem .45rem .55rem; background-position: right .65rem center; }
+.threshold-amount { display: block; margin-top: .3rem; color: var(--muted); font-size: .85rem; font-weight: 600; }
 
 .control-panel { padding: 1.25rem; margin-bottom: 1rem; }
 .field { margin-top: 1rem; }
@@ -79,7 +86,7 @@ tbody tr.excluded td { text-decoration-color: #a8655f; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
 @media (min-width: 45rem) {
-  main { padding-top: 4rem; }.scenario { display: grid; grid-template-columns: 1fr 1.35fr; gap: 2rem; align-items: center; }.scenario-data { padding: 0; }.control-panel { display: grid; grid-template-columns: 1fr 1.05fr; gap: 2rem; align-items: end; }.field { margin: 0; }.formula-preview { grid-column: 1 / -1; }.results-heading { flex-direction: row; justify-content: space-between; align-items: end; }
+  main { padding-top: 4rem; }.scenario { display: grid; grid-template-columns: 1fr 1.35fr; gap: 2rem; align-items: center; }.scenario-data { padding: 0; }.scenario-note { grid-column: 1 / -1; margin-top: -1rem; }.control-panel { display: grid; grid-template-columns: 1fr 1.05fr; gap: 2rem; align-items: end; }.field { margin: 0; }.formula-preview { grid-column: 1 / -1; }.results-heading { flex-direction: row; justify-content: space-between; align-items: end; }
 }
 
 @media (max-width: 44.99rem) {
